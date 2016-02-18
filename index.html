@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Tooltip, title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/tooltip.css" rel="stylesheet" type="text/css"/>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <button class="tooltip" data-title="Hahaaha!" data-position="top">Button 1</button>
+        <button class="tooltip" data-title="What is your name?" data-position="bottom">Button 2</button>
+        <script>
+            var tooltips = $('.tooltip');
+            for(var i = 0; i < tooltips.length; i++) {
+                var title = tooltips.eq(i).attr('data-title') || 'This is title!';
+                var position = tooltips.eq(i).attr('data-position') || 'top';
+                var $i = $("<i class='tooltip_c " + position + "'>" + title + "</i>");
+                tooltips.eq(i).addClass('tooltip_w')
+                        .append($i)
+                        .removeClass('tooltip')
+                        .removeAttr('data-title')
+                        .removeAttr('data-position');
+            }
+        </script>
+    </body>
+</html>
